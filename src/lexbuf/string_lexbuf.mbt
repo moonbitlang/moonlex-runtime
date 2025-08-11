@@ -53,7 +53,7 @@ pub impl IStringLexbuf for StringLexbuf with reset(self, pos~) {
 
 ///|
 pub impl IStringLexbuf for StringLexbuf with get_char(self, start, _end) {
-  self.data.unsafe_char_at(start)
+  self.data.get_char(start).unwrap()
 }
 
 ///|
