@@ -43,7 +43,7 @@ pub impl IBytesLexbuf for BytesLexbuf with reset(self, pos~ : Int) {
 pub impl IBytesLexbuf for BytesLexbuf with get_char(
   self,
   start : Int,
-  _end : Int
+  _end : Int,
 ) {
   self.data[start]
 }
@@ -52,7 +52,7 @@ pub impl IBytesLexbuf for BytesLexbuf with get_char(
 pub impl IBytesLexbuf for BytesLexbuf with get_string(
   self,
   start : Int,
-  end : Int
+  end : Int,
 ) {
   return self.data[start:end]
 }
