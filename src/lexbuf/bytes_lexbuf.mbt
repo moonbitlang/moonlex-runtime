@@ -4,7 +4,7 @@ pub(open) trait IBytesLexbuf {
   curr_pos(Self) -> Int
   reset(Self, pos~ : Int) -> Unit
   get_char(Self, Int, Int) -> Byte
-  get_string(Self, Int, Int) -> @bytes.View
+  get_string(Self, Int, Int) -> BytesView
 }
 
 ///|
