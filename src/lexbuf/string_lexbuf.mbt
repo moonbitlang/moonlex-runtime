@@ -1,10 +1,10 @@
 ///|
 pub(open) trait IStringLexbuf {
-  next_as_int(Self) -> Int
-  curr_pos(Self) -> Int
-  reset(Self, pos~ : Int) -> Unit
-  get_char(Self, Int, Int) -> Char
-  get_string(Self, Int, Int) -> String
+  fn next_as_int(Self) -> Int
+  fn curr_pos(Self) -> Int
+  fn reset(Self, pos~ : Int) -> Unit
+  fn get_char(Self, Int, Int) -> Char
+  fn get_string(Self, Int, Int) -> String
 }
 
 ///|
@@ -20,7 +20,7 @@ pub fn StringLexbuf::from_string(string : String) -> StringLexbuf {
 }
 
 ///|
-pub impl IStringLexbuf for StringLexbuf with next_as_int(self) {
+pub impl IStringLexbuf for StringLexbuf with fn next_as_int(self) {
   let pos = self.pos
   let end = self.end
   if self.pos < end {
@@ -42,21 +42,21 @@ pub impl IStringLexbuf for StringLexbuf with next_as_int(self) {
 }
 
 ///|
-pub impl IStringLexbuf for StringLexbuf with curr_pos(self) {
+pub impl IStringLexbuf for StringLexbuf with fn curr_pos(self) {
   self.pos
 }
 
 ///|
-pub impl IStringLexbuf for StringLexbuf with reset(self, pos~) {
+pub impl IStringLexbuf for StringLexbuf with fn reset(self, pos~) {
   self.pos = pos
 }
 
 ///|
-pub impl IStringLexbuf for StringLexbuf with get_char(self, start, _end) {
+pub impl IStringLexbuf for StringLexbuf with fn get_char(self, start, _end) {
   self.data.get_char(start).unwrap()
 }
 
 ///|
-pub impl IStringLexbuf for StringLexbuf with get_string(self, start, end) {
-  try! self.data[start:end].to_string()
+pub impl IStringLexbuf for StringLexbuf with fn get_string(self, start, end) {
+  self.data[start:end].to_owned()
 }

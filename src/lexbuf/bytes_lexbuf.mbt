@@ -1,10 +1,10 @@
 ///|
 pub(open) trait IBytesLexbuf {
-  next_as_int(Self) -> Int
-  curr_pos(Self) -> Int
-  reset(Self, pos~ : Int) -> Unit
-  get_char(Self, Int, Int) -> Byte
-  get_string(Self, Int, Int) -> BytesView
+  fn next_as_int(Self) -> Int
+  fn curr_pos(Self) -> Int
+  fn reset(Self, pos~ : Int) -> Unit
+  fn get_char(Self, Int, Int) -> Byte
+  fn get_string(Self, Int, Int) -> BytesView
 }
 
 ///|
@@ -20,7 +20,7 @@ pub fn BytesLexbuf::from_bytes(bytes : Bytes) -> BytesLexbuf {
 }
 
 ///|
-pub impl IBytesLexbuf for BytesLexbuf with next_as_int(self) {
+pub impl IBytesLexbuf for BytesLexbuf with fn next_as_int(self) {
   if self.pos >= self.end {
     return -1
   }
@@ -30,17 +30,17 @@ pub impl IBytesLexbuf for BytesLexbuf with next_as_int(self) {
 }
 
 ///|
-pub impl IBytesLexbuf for BytesLexbuf with curr_pos(self) {
+pub impl IBytesLexbuf for BytesLexbuf with fn curr_pos(self) {
   return self.pos
 }
 
 ///|
-pub impl IBytesLexbuf for BytesLexbuf with reset(self, pos~ : Int) {
+pub impl IBytesLexbuf for BytesLexbuf with fn reset(self, pos~ : Int) {
   self.pos = pos
 }
 
 ///|
-pub impl IBytesLexbuf for BytesLexbuf with get_char(
+pub impl IBytesLexbuf for BytesLexbuf with fn get_char(
   self,
   start : Int,
   _end : Int,
@@ -49,7 +49,7 @@ pub impl IBytesLexbuf for BytesLexbuf with get_char(
 }
 
 ///|
-pub impl IBytesLexbuf for BytesLexbuf with get_string(
+pub impl IBytesLexbuf for BytesLexbuf with fn get_string(
   self,
   start : Int,
   end : Int,
