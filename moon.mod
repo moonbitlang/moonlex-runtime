@@ -1,0 +1,17 @@
+name = "moonbitlang/ulex-runtime"
+
+version = "0.4.3"
+
+readme = "README.md"
+
+repository = "https://github.com/moonbitlang/moonlex-runtime.git"
+
+license = "Apache-2.0"
+
+keywords = [ ]
+
+description = ""
+
+options(
+  source: "src",
+)
