@@ -16,7 +16,7 @@ pub struct StringLexbuf {
 
 ///|
 pub fn StringLexbuf::from_string(string : String) -> StringLexbuf {
-  StringLexbuf::{ data: string, end: string.length(), pos: 0 }
+  StringLexbuf::{ data: string, end: string.length(), pos: 0, }
 }
 
 ///|
@@ -59,4 +59,13 @@ pub impl IStringLexbuf for StringLexbuf with fn get_char(self, start, _end) {
 ///|
 pub impl IStringLexbuf for StringLexbuf with fn get_string(self, start, end) {
   self.data[start:end].to_owned()
+}
+
+///|
+pub extend StringLexbuf with IStringLexbuf::{
+  next_as_int,
+  curr_pos,
+  reset,
+  get_char,
+  get_string,
 }
