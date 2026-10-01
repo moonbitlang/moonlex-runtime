@@ -16,7 +16,7 @@ pub struct BytesLexbuf {
 
 ///|
 pub fn BytesLexbuf::from_bytes(bytes : Bytes) -> BytesLexbuf {
-  BytesLexbuf::{ data: bytes, end: bytes.length(), pos: 0 }
+  BytesLexbuf::{ data: bytes, end: bytes.length(), pos: 0, }
 }
 
 ///|
@@ -55,4 +55,13 @@ pub impl IBytesLexbuf for BytesLexbuf with fn get_string(
   end : Int,
 ) {
   return self.data[start:end]
+}
+
+///|
+pub extend BytesLexbuf with IBytesLexbuf::{
+  next_as_int,
+  curr_pos,
+  reset,
+  get_char,
+  get_string,
 }
