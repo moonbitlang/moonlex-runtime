@@ -1,17 +1,17 @@
 ///|
 pub(open) trait IStringLexbuf {
-  fn next_as_int(Self) -> Int
-  fn curr_pos(Self) -> Int
-  fn reset(Self, pos~ : Int) -> Unit
-  fn get_char(Self, Int, Int) -> Char
-  fn get_string(Self, Int, Int) -> String
+  fn next_as_int(Self) -> Int32
+  fn curr_pos(Self) -> Int32
+  fn reset(Self, pos~ : Int32) -> Unit
+  fn get_char(Self, Int32, Int32) -> Char
+  fn get_string(Self, Int32, Int32) -> String
 }
 
 ///|
 pub struct StringLexbuf {
   data : String
-  end : Int
-  mut pos : Int
+  end : Int32
+  mut pos : Int32
 }
 
 ///|
